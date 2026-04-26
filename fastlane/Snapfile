@@ -1,0 +1,25 @@
+# 设备列表
+devices([
+  "iPhone 16 Pro Max",
+  "iPad Pro 13-inch (M4)"
+])
+
+# 50+ 语言列表
+languages([
+  "ar-SA", "ca", "cs", "da", "de-DE",
+  "el", "en-US", "es-ES", "es-MX", "fi",
+  "fr-FR", "he", "hi", "hr", "hu",
+  "id", "it", "ja", "ko", "ms",
+  "nl-NL", "no", "pl", "pt-BR", "pt-PT",
+  "ro", "ru", "sk", "sv", "th",
+  "tr", "uk", "vi", "zh-Hans", "zh-Hant"
+])
+
+# 输出目录
+output_directory("./fastlane/screenshots")
+
+# 清理旧截图
+clear_previous_screenshots(true)
+
+# Scheme（需替换）
+scheme("潮州菜菜谱精选UITests")

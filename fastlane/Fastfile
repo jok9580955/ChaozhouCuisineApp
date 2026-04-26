@@ -1,0 +1,39 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "一键全球发布"
+  lane :release do
+    api_key = app_store_connect_api_key(
+      key_id: "RHBUMPP824",
+      issuer_id: "f68594d0-23a9-480d-8f1d-6c84b40bf664",
+      key_filepath: "fastlane/AuthKey_RHBUMPP824.p8",
+      duration: 1200,
+      in_house: false
+    )
+
+    # 自动递增 build number
+    increment_build_number
+
+    # 构建 IPA - 锁定 iOS 平台防止 visionOS 误触发
+    build_app(
+      scheme: "潮州菜菜谱精选",
+      destination: "generic/platform=iOS",
+      export_method: "app-store"
+    )
+
+    # 上传到 App Store Connect
+    deliver(
+      api_key: api_key,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: false
+    )
+  end
+
+  desc "仅截图"
+  lane :screenshots do
+    snapshot
+  end
+end

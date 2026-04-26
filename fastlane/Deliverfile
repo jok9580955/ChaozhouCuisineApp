@@ -1,0 +1,19 @@
+# 价格层级（买断制）
+price_tier 1
+
+# 禁用 precheck（API Key 模式下有底层缺陷）
+run_precheck_before_submit(false)
+
+# 提交信息
+submission_information({
+  add_id_info_serves_ads: false,
+  add_id_info_tracks_action: false,
+  add_id_info_tracks_install: false,
+  add_id_info_uses_idfa: false,
+  content_rights_has_rights: true,
+  content_rights_contains_third_party_content: false,
+  export_compliance_uses_encryption: false,
+  export_compliance_is_exempt: false,
+  export_compliance_contains_proprietary_cryptography: false,
+  export_compliance_contains_third_party_cryptography: false
+})
